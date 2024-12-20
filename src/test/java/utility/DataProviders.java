@@ -54,4 +54,22 @@ public class DataProviders {
         return apidata;
     }
 
+    @DataProvider(name="update_all_data")
+    public String[][] getUpdateAllData() throws IOException {
+        String path=System.getProperty("user.dir")+"//datatest//datatesting.xlsx";
+        ExcelUtil xl = new ExcelUtil(path);
+
+        int rownum = xl.getRowCount("ForUpdate");
+        int colcount = xl.getCellCount("ForUpdate",1);
+
+        String apidata[][] = new String[rownum][colcount];
+
+        for(int i=1;i<=rownum;i++) {
+            for(int j=0;j<colcount;j++) {
+                apidata[i-1][j]=xl.getCellData("ForUpdate", i, j);
+            }
+        }
+        return apidata;
+    }
+
 }
