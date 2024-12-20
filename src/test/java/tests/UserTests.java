@@ -5,26 +5,36 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pojo.PojoLogin;
+import pojo.User;
 
 public class UserTests {
-    PojoLogin userPayload;
-
+    User user;
     @BeforeClass
     public void setup() {
-        userPayload = new PojoLogin();
-        userPayload.setUsername("ini username");
-        userPayload.setEmail("ini email");
-        userPayload.setFirstname("ini firstname");
-        userPayload.setLastname("ini lastname");
-        userPayload.setPassword("ini password");
+        user = new User();
+        user.setFirstName("Aji Fauzi");
+        user.setLastname("Pangestu");
+        user.setUsername("afpgntng");
+        user.setEmail("ajifauzi@rocketmail.com");
+        user.setPassword("rahasia");
+        user.setPhone("08742313");
     }
 
     @Test
-    public void createUser() {
-        Response response = UserEndPoints.createUser(userPayload);
+    public void createUserTest() {
+        Response response = UserEndPoints.createUser(user);
         response.then().log().body();
-
         Assert.assertEquals(response.statusCode(), 200);
+        System.out.println("CREATE USER SUCCESS");
+        System.out.println("=================================");
+    }
+
+    @Test
+    public void loginUserTest() {
+        Response response = UserEndPoints.loginUser(user.getUsername(), user.getPassword());
+        response.then().log().body();
+        Assert.assertEquals(response.statusCode(), 200);
+        System.out.println("LOGIN USER SUCCESS");
+        System.out.println("=================================");
     }
 }
