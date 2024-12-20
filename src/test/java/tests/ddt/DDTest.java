@@ -10,7 +10,7 @@ import utility.DataProviders;
 public class DDTest {
     User user;
     @Test(priority = 1, dataProvider = "all_data", dataProviderClass = DataProviders.class)
-    public void createUserTest(String uname, String fname, String lname, String mairu, String pwd, String phnmber) {
+    public void createUserTest(String uname, String pwd, String mairu, String lname, String fname, String phnmber) {
         user = new User();
         user.setFirstName(fname);
         user.setLastname(lname);
@@ -34,8 +34,8 @@ public class DDTest {
         System.out.println("=================================");
     }
 
-    @Test(priority = 3, dataProvider = "by_username", dataProviderClass = DataProviders.class)
-    public void updateUserTest(String uname, String fname, String lname, String mairu, String pwd, String phnmber) {
+    @Test(priority = 3, dataProvider = "update_all_data", dataProviderClass = DataProviders.class)
+    public void updateUserTest(String uname, String pwd, String mairu, String lname, String fname, String phnmber) {
         user = new User();
         user.setFirstName(fname);
         user.setLastname(lname);
