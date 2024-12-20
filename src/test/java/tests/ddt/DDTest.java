@@ -8,9 +8,10 @@ import pojo.User;
 import utility.DataProviders;
 
 public class DDTest {
+    User user;
     @Test(priority = 1, dataProvider = "all_data", dataProviderClass = DataProviders.class)
     public void createUserTest(String uname, String fname, String lname, String mairu, String pwd, String phnmber) {
-        User user = new User();
+        user = new User();
         user.setFirstName(fname);
         user.setLastname(lname);
         user.setUsername(uname);
@@ -34,6 +35,31 @@ public class DDTest {
     }
 
     @Test(priority = 3, dataProvider = "by_username", dataProviderClass = DataProviders.class)
+    public void updateUserTest(String uname, String fname, String lname, String mairu, String pwd, String phnmber) {
+        user = new User();
+        user.setFirstName(fname);
+        user.setLastname(lname);
+        user.setUsername(uname);
+        user.setEmail(mairu);
+        user.setPassword(pwd);
+        user.setPhone(phnmber);
+        Response response = UserEndPoints.updateUser(uname, user);
+        response.then().log().body();
+        Assert.assertEquals(response.getStatusCode(), 200);
+        System.out.println("UPDATE USER SUCCESS");
+        System.out.println("=================================");
+    }
+
+    @Test(priority = 4)
+    public void logoutUserTest() {
+        Response response = UserEndPoints.logoutUser();
+        response.then().log().body();
+        Assert.assertEquals(response.getStatusCode(), 200);
+        System.out.println("LOGOUT USER SUCCESS");
+        System.out.println("=================================");
+    }
+
+    @Test(priority = 5, dataProvider = "by_username", dataProviderClass = DataProviders.class)
     public void deleteUserTest(String uname) {
         Response response = UserEndPoints.deleteUser(uname);
         response.then().log().body();
