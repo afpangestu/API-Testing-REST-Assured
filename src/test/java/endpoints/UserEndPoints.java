@@ -12,7 +12,6 @@ public class UserEndPoints {
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
                 .body(payload)
-                .body("name")
                 .when()
                 .post(Routes.userCreatePostUrl);
     }
@@ -27,23 +26,28 @@ public class UserEndPoints {
                 .get(Routes.userLoginGetUrl);
     }
 
-//    public static Response logoutUser() {
-//        return given()
-//                .get(Routes.userLogoutGetUrl);
-//    }
-//
-//    public static Response updateUser(String username) {
-//        return given()
-//                .pathParam("username", username)
-//                .when()
-//                .put(Routes.userUpdatePutUrl);
-//    }
-//
-//    public static Response deleteUser(String username) {
-//        return given()
-//                .pathParam("username", username)
-//                .when()
-//                .put(Routes.userDeleteUrl);
-//    }
+    public static Response logoutUser() {
+        return given()
+                .get(Routes.userLogoutGetUrl);
+    }
+
+    public static Response updateUser(String username, User payload) {
+        return given()
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .pathParam("username", username)
+                .body(payload)
+                .when()
+                .put(Routes.userUpdatePutUrl);
+    }
+
+    public static Response deleteUser(String username) {
+        return given()
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .pathParam("username", username)
+                .when()
+                .delete(Routes.userDeleteUrl);
+    }
 
 }
