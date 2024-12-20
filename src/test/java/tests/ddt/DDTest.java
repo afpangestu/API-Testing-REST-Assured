@@ -1,5 +1,8 @@
 package tests.ddt;
 
+import endpoints.UserEndPoints;
+import io.restassured.response.Response;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pojo.User;
 import utility.DataProviders;
@@ -14,5 +17,9 @@ public class DDTest {
         user.setEmail(mairu);
         user.setPassword(pwd);
         user.setPhone(phnmber);
+
+        Response response = UserEndPoints.createUser(user);
+        response.then().log().body();
+        Assert.assertEquals(response.getStatusCode(), 200);
     }
 }
