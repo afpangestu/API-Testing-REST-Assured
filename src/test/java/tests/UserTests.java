@@ -24,7 +24,7 @@ public class UserTests {
     public void createUserTest() {
         Response response = UserEndPoints.createUser(user);
         response.then().log().body();
-        Assert.assertEquals(response.statusCode(), 200);
+        Assert.assertEquals(response.getStatusCode(), 200);
         System.out.println("CREATE USER SUCCESS");
         System.out.println("=================================");
     }
@@ -33,7 +33,7 @@ public class UserTests {
     public void loginUserTest() {
         Response response = UserEndPoints.loginUser(this.user.getUsername(), this.user.getPassword());
         response.then().log().body();
-        Assert.assertEquals(response.statusCode(), 200);
+        Assert.assertEquals(response.getStatusCode(), 200);
         System.out.println("LOGIN USER SUCCESS");
         System.out.println("=================================");
     }
@@ -49,7 +49,7 @@ public class UserTests {
         user.setPhone("14242142");
         Response response = UserEndPoints.updateUser(user.getUsername(), user);
         response.then().log().body();
-        Assert.assertEquals(response.statusCode(), 200);
+        Assert.assertEquals(response.getStatusCode(), 200);
         System.out.println("UPDATE USER SUCCESS");
         System.out.println("=================================");
     }
@@ -58,7 +58,7 @@ public class UserTests {
     public void logoutUserTest() {
         Response response = UserEndPoints.logoutUser();
         response.then().log().body();
-        Assert.assertEquals(response.statusCode(), 200);
+        Assert.assertEquals(response.getStatusCode(), 200);
         System.out.println("LOGOUT USER SUCCESS");
         System.out.println("=================================");
     }
@@ -67,7 +67,7 @@ public class UserTests {
     public void deleteUserTest() {
         Response response = UserEndPoints.deleteUser(this.user.getUsername());
         response.then().log().body();
-        Assert.assertEquals(response.statusCode(), 200);
+        Assert.assertEquals(response.getStatusCode(), 200);
         System.out.println("DELETE USER SUCCESS");
         System.out.println("=================================");
     }
