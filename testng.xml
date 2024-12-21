@@ -8,8 +8,8 @@
         <classes>
             <class name="tests.UserTests">
                 <methods>
-                    <include name="createUserTest"/>
                     <include name="loginUserTest"/>
+                    <include name="createUserTest"/>
                 </methods>
             </class>
         </classes>

@@ -20,7 +20,7 @@ public class UserTests {
         user.setPhone("08742313");
     }
 
-    @Test(priority = 1)
+    @Test
     public void createUserTest() {
         Response response = UserEndPoints.createUser(user);
         response.then().log().body();
@@ -29,7 +29,7 @@ public class UserTests {
         System.out.println("=================================");
     }
 
-    @Test(priority = 2)
+    @Test
     public void loginUserTest() {
         Response response = UserEndPoints.loginUser(this.user.getUsername(), this.user.getPassword());
         response.then().log().body();
