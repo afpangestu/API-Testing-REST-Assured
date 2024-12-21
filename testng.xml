@@ -4,17 +4,9 @@
     <listeners>
         <listener class-name="utility.ExtentReportManager"/>
     </listeners>
-    <test verbose="2" preserve-order="true" name="C:/Users/Kazakimaru/IdeaProjects/API-Testing-Rest-Assured-Java/src/test/java/tests/ddt">
+    <test name="Pet Store">
         <classes>
-            <class name="tests.ddt.DDTest">
-                <methods>
-                    <include name="createUserTest"/>
-                    <include name="loginUserTest"/>
-                    <include name="updateUserTest"/>
-                    <include name="logoutUserTest"/>
-                    <include name="deleteUserTest"/>
-                </methods>
-            </class>
+            <class name="tests.ddt.DDTest"/>
         </classes>
     </test>
 </suite>
