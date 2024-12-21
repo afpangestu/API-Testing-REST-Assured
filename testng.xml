@@ -6,7 +6,7 @@
     </listeners>
     <test name="Pet Store">
         <classes>
-            <class name="tests.ddt.DDTest"/>
+            <class name="tests.UserTests"/>
         </classes>
     </test>
 </suite>
