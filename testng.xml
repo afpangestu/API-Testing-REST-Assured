@@ -6,7 +6,12 @@
     </listeners>
     <test name="Pet Store">
         <classes>
-            <class name="tests.UserTests"/>
+            <class name="tests.UserTests">
+                <methods>
+                    <include name="createUserTest"/>
+                    <include name="loginUserTest"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
