@@ -33,7 +33,6 @@ public class ExtentReportManager implements ITestListener {
         extent.attachReporter(sparkReporter);
         extent.setSystemInfo("Application", "Pet Store API Testing");
         extent.setSystemInfo("OS", System.getProperty("os.name"));
-        extent.setSystemInfo("Username", System.getProperty("user.name"));
         extent.setSystemInfo("Environment", "QA");
         extent.setSystemInfo("User", "Aji Fauzi Pangestu");
     }
